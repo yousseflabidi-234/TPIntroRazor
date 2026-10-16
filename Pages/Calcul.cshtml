@@ -1,0 +1,26 @@
+@page
+@model TPIntroRazor.Pages.CalculModel
+@{ ViewData["Title"] = "Calculateur d'âge"; }
+
+<div class="container mt-4" style="max-width: 450px;">
+    <h2 class="mb-3">Calculateur d'âge</h2>
+
+    <form method="post">
+        <div class="mb-3">
+            <label asp-for="Nom" class="form-label">Votre nom</label>
+            <input asp-for="Nom" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="AnneeNaissance" class="form-label">Année de naissance</label>
+            <input asp-for="AnneeNaissance" class="form-control" type="number" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Calculer</button>
+    </form>
+
+    @if (!string.IsNullOrEmpty(Model.Message))
+    {
+        <div class="alert alert-info mt-3">@Model.Message</div>
+    }
+</div>
